@@ -32,7 +32,9 @@ async function getTopDeals({ minDiscount = 70, limit = 30 } = {}) {
       ratingPercent: deal.steamRatingPercent,
       steamAppId: deal.steamAppID,
       thumbnail: deal.thumb,
-      dealLink: `https://www.cheapshark.com/redirect?dealID=${deal.dealID}`,
+      dealLink: deal.steamAppID 
+        ? `https://store.steampowered.com/app/${deal.steamAppID}` 
+        : `https://www.cheapshark.com/redirect?dealID=${deal.dealID}`,
     }));
 }
 
